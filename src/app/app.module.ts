@@ -21,6 +21,7 @@ import { NotFoundComponent } from './errors/not-found.component';
 import { EventsAppComponent } from './events-app.component';
 import { AuthService } from './user/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CollapsibleWellComponent } from './common/collapsible-well.component';
 
 @NgModule({
   imports: [BrowserModule, RouterModule.forRoot(appRoutes), FormsModule, ReactiveFormsModule],
@@ -34,6 +35,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NotFoundComponent,
     CreateSessionComponent,
     SessionListComponent,
+    CollapsibleWellComponent
   ],
   providers: [
     EventService,
