@@ -9,6 +9,8 @@ import {
   CreateEventComponent,
   EventRouteActivator,
   EventListResolver,
+  CreateSessionComponent,
+  SessionListComponent,
 } from './events/index';
 
 import { NavBarComponent } from './nav/navbar.component';
@@ -19,7 +21,6 @@ import { NotFoundComponent } from './errors/not-found.component';
 import { EventsAppComponent } from './events-app.component';
 import { AuthService } from './user/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CreateSessionComponent } from './events/event-details/create-session/create-session.component';
 
 @NgModule({
   imports: [BrowserModule, RouterModule.forRoot(appRoutes), FormsModule, ReactiveFormsModule],
@@ -32,6 +33,7 @@ import { CreateSessionComponent } from './events/event-details/create-session/cr
     CreateEventComponent,
     NotFoundComponent,
     CreateSessionComponent,
+    SessionListComponent,
   ],
   providers: [
     EventService,
