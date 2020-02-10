@@ -18,9 +18,11 @@ import { appRoutes } from 'src/routes';
 import { NotFoundComponent } from './errors/not-found.component';
 import { EventsAppComponent } from './events-app.component';
 import { AuthService } from './user/auth.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreateSessionComponent } from './events/event-details/create-session/create-session.component';
 
 @NgModule({
-  imports: [BrowserModule, RouterModule.forRoot(appRoutes)],
+  imports: [BrowserModule, RouterModule.forRoot(appRoutes), FormsModule, ReactiveFormsModule],
   declarations: [
     EventsAppComponent,
     EventsListComponent,
@@ -29,6 +31,7 @@ import { AuthService } from './user/auth.service';
     EventDetailsComponent,
     CreateEventComponent,
     NotFoundComponent,
+    CreateSessionComponent,
   ],
   providers: [
     EventService,
@@ -36,7 +39,7 @@ import { AuthService } from './user/auth.service';
     EventRouteActivator,
     { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState },
     EventListResolver,
-    AuthService
+    AuthService,
   ],
   bootstrap: [EventsAppComponent],
 })

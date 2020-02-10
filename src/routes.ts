@@ -5,6 +5,7 @@ import {
   EventListResolver,
   EventDetailsComponent,
   EventRouteActivator,
+  CreateSessionComponent,
 } from './app/events/index';
 import { NotFoundComponent } from './app/errors/not-found.component';
 
@@ -16,6 +17,7 @@ export const appRoutes: Routes = [
     canDeactivate: ['canDeactivateCreateEvent'],
   },
   { path: 'events/:id', component: EventDetailsComponent, canActivate: [EventRouteActivator] },
+  { path: 'events/session/new', component: CreateSessionComponent },
   { path: 'not-found', component: NotFoundComponent },
   { path: '', redirectTo: '/events', pathMatch: 'full' },
   { path: 'user', loadChildren: () => import('./app/user/user.module').then(m => m.UserModule) },
