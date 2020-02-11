@@ -11,6 +11,7 @@ import {
   EventListResolver,
   CreateSessionComponent,
   SessionListComponent,
+  DurationPipe,
 } from './events/index';
 
 import { NavBarComponent } from './nav/navbar.component';
@@ -35,7 +36,8 @@ import { CollapsibleWellComponent } from './common/collapsible-well.component';
     NotFoundComponent,
     CreateSessionComponent,
     SessionListComponent,
-    CollapsibleWellComponent
+    CollapsibleWellComponent,
+    DurationPipe
   ],
   providers: [
     EventService,
