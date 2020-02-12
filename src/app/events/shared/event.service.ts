@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { of, Observable } from 'rxjs';
 import { delay } from 'rxjs/operators';
-import { IEvent } from '.';
+import { IEvent, ISession } from '.';
 
 @Injectable()
 export class EventService {
@@ -19,6 +19,29 @@ export class EventService {
   updateEvent(event) {
     const index = EVENTS.findIndex(x => x.id === event.id);
     EVENTS[index] = event;
+  }
+  searchSessions(searchTerm: string) {
+    const term = searchTerm.toLocaleLowerCase();
+    let results: ISession[] = [];
+
+    EVENTS.forEach(event => {
+      let matchingSessions: any = event.sessions.filter(
+        session => session.name.toLocaleLowerCase().indexOf(term) > -1,
+      );
+      matchingSessions = matchingSessions.map((session: any) => {
+        session.eventId = event.id;
+        return session;
+      });
+
+      results = results.concat(matchingSessions);
+    });
+
+    const emitter = new EventEmitter(true);
+    setTimeout(() => {
+      emitter.emit(results);
+    }, 100);
+
+    return emitter;
   }
 }
 
@@ -233,7 +256,7 @@ const EVENTS: IEvent[] = [
       },
       {
         id: 6,
-        name: 'These aren\'t the directives you\'re looking for',
+        name: "These aren't the directives you're looking for",
         presenter: 'John Papa',
         duration: 2,
         level: 'Intermediate',

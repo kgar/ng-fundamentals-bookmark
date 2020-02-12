@@ -39,7 +39,7 @@ export class ProfileComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    @Inject(TOASTR_TOKEN) private toastr: Toastr,
+    @Inject(TOASTR_TOKEN) private toastr: any,
   ) {}
 
   ngOnInit(): void {
