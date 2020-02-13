@@ -12,6 +12,8 @@ import {
   CreateSessionComponent,
   SessionListComponent,
   DurationPipe,
+  VoterService,
+  LocationValidator,
 } from './events/index';
 
 import { NavBarComponent } from './nav/navbar.component';
@@ -23,6 +25,7 @@ import { AuthService } from './user/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CollapsibleWellComponent, TOASTR_TOKEN, JQ_TOKEN, ModalTriggerDirective } from './common';
 import { SimpleModalComponent } from './common/simple-modal/simple-modal.component';
+import { UpvoteComponent } from './events/event-details/upvote/upvote.component';
 
 let toastr: any = window['toastr'];
 let jQuery = window['$'];
@@ -43,6 +46,8 @@ let jQuery = window['$'];
     DurationPipe,
     SimpleModalComponent,
     ModalTriggerDirective,
+    UpvoteComponent,
+    LocationValidator
   ],
   providers: [
     EventService,
@@ -52,6 +57,7 @@ let jQuery = window['$'];
     { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState },
     EventListResolver,
     AuthService,
+    VoterService
   ],
   bootstrap: [EventsAppComponent],
 })
