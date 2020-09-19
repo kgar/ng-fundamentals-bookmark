@@ -10,7 +10,7 @@ export class SimpleModalComponent implements OnInit {
   @Input() title: string;
   @Input() modalId: string;
   @Input() closeOnBodyClick: string;
-  @ViewChild('modalContainer', { static: false }) containerEl: ElementRef;
+  @ViewChild('modalContainer') containerEl: ElementRef;
   constructor(@Inject(JQ_TOKEN) private $: any) {}
 
   ngOnInit() {}
